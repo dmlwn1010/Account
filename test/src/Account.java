@@ -1,25 +1,28 @@
-import java.util.Scanner;
 
 public class Account {
 
-	//double account1 = 0;
-	//double account2 = 0;
+	private double balance;
 	
-	public double balance(double account){
-		return account;
+	public double getBalance(){
+		return balance;
 	}
 	
-	public void debit(double account, double s){
-		if(account > 0){
-			account = account - s;
-		} 
+	public void debit(double s){
+		if(balance > 0){
+			balance = balance - s;
+		}
+		else{
+			System.out.println("Debit amount exceeded account balance");
+		}
 	}
 	
-	public void credit(double account, double s){
-		account = account + s;
+	public void credit(double s){
+		balance = balance + s;
 	}
 	
-	
+	protected void setBalance(){
+		
+	}
 }
 
 /*public class AccountTest {
