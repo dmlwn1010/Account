@@ -3,6 +3,10 @@ public class Account {
 
 	private double balance;
 	
+	public Account(int money){
+		balance = money;
+	}
+	
 	public double getBalance(){
 		return balance;
 	}
