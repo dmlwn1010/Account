@@ -1,7 +1,7 @@
 
 public class CheckingAccount extends Account {
 	
-	public CheckingAccount(double bal, double limit, double intt, double loan_intt){
+	public CheckingAccount(double bal, double limit, double intt, double loanIntt){
 		super(bal);
 		credit_limit = limit;
 		interest = intt;
@@ -29,5 +29,11 @@ public class CheckingAccount extends Account {
 		else{
 			setBalance(getBalance()*(1 + loan_interest));
 		}
+	}
+	public double getWithdrawable(){
+		
+	}
+	public double passTime(int time){
+		return getBalance()*Math.pow((1 + interest), time);
 	}
 }

@@ -1,5 +1,5 @@
 
-public class Account {
+public abstract class Account {
 
 	private double balance;
 	
@@ -24,4 +24,7 @@ public class Account {
 	protected void setBalance(double s){
 		balance = s;
 	}
+	public abstract double getWithdrawableAccount();
+	
+	public abstract double passTime(int time);
 }
