@@ -5,9 +5,10 @@ public class AccountTest {
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
 		
-		Account account1 = new Account(0); //잔고를 0으로 초기화 시켜놓음
-		Account account2 = new Account(0);
-		
+		//Account account1 = new Account(0); //잔고를 0으로 초기화 시켜놓음
+		//Account account2 = new Account(0);
+		CheckingAccount account1=new CheckingAccount(0.0, 100.0, 0.3, 0.3);
+		CheckingAccount account2=new CheckingAccount(0.0, 100.0, 0.3, 0.3);
 		while(true){
 			System.out.println("입금을 원하시면 1번, 출금을 원하시면 2번을 누르세요.");
 			int menu = input.nextInt();
