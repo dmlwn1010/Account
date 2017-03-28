@@ -10,24 +10,23 @@ public class AccountTest {
 		CheckingAccount account1=new CheckingAccount(0.0, 100.0, 0.3, 0.3);
 		CheckingAccount account2=new CheckingAccount(0.0, 100.0, 0.3, 0.3);
 		while(true){
-			System.out.println("입금을 원하시면 1번, 출금을 원하시면 2번을 누르세요.");
+			System.out.println("입금을 원하시면 1번, 출금을 원하시면 2번, 끝내고 싶으면 3번을 누르세요.");
 			int menu = input.nextInt();
 			if(menu == 1){ //입금
 				System.out.println("1번 -> account1, 2 번-> account2");
 				menu = input.nextInt();
 				if(menu == 1){
 					System.out.print("입금할 금액을 입력하세요: ");
-					double s = input.nextDouble();
+					double s = input.nextDouble(); 
 					account1.credit(s);
 				} else if(menu == 2){
 					System.out.print("입급할 금액을 입력하세요: ");
 					double s= input.nextDouble();
 					account2.credit(s);
 				}
-				System.out.printf("%f\n", account1.getBalance()); //잔고 확인
-				System.out.printf("%f\n", account2.getBalance());
-			}
-			else if(menu == 2){ //출력
+				System.out.printf("Account1 balance: %f\n", account1.getBalance()); //잔고 확인
+				System.out.printf("Account2 balance: %f\n", account2.getBalance());
+			} else if(menu == 2){ //출력
 				System.out.println("1번 -> account1, 2번 -> account2")	;
 				menu = input.nextInt();
 				if(menu == 1){
@@ -39,9 +38,16 @@ public class AccountTest {
 					double s = input.nextDouble();
 					account2.debit(s);
 				}
-				System.out.printf("%f\n", account1.getBalance()); //잔고 확인
-				System.out.printf("%f\n", account2.getBalance());
+				System.out.printf("Account1 balance: %f\n", account1.getBalance()); //잔고 확인
+				System.out.printf("Account2 balance: %f\n", account2.getBalance());
+			} else if(menu == 3){
+				break;
 			}
 		}
+			System.out.println("next month!");
+			account1.nextMonth();
+			account2.nextMonth();
+			System.out.printf("Account1 balance: %f\n", account1.getBalance());
+			System.out.printf("Account2 balance: %f\n", account2.getBalance());
 	}
 }

@@ -5,12 +5,13 @@ public class CheckingAccount extends Account {
 		super(bal);
 		credit_limit = limit;
 		interest = intt;
-		loan_interest = loan_intt;
+		loan_interest = loanIntt;
 	}
 	private double credit_limit; //대출 한도
 	private double interest; //이자
 	private double loan_interest; //대출이자
-	 
+	
+	@Override
 	public void debit(double s){
 		if(-credit_limit > getBalance() - s){
 			System.out.println("Over!");
@@ -31,7 +32,7 @@ public class CheckingAccount extends Account {
 		}
 	}
 	public double getWithdrawable(){
-		
+		return 0;
 	}
 	public double passTime(int time){
 		return getBalance()*Math.pow((1 + interest), time);
