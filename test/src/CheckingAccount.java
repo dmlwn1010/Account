@@ -3,20 +3,19 @@ public class CheckingAccount extends Account {
 	
 	public CheckingAccount(double bal, double limit, double intt, double loanIntt){
 		super(bal);
-		credit_limit = limit;
+		creditLimit = limit;
 		interest = intt;
-		loan_interest = loanIntt;
+		loanInterest = loanIntt;
 	}
-	private double credit_limit; //대출 한도
+	private double creditLimit; //대출 한도
 	private double interest; //이자
-	private double loan_interest; //대출이자
+	private double loanInterest; //대출이자
 	
 	@Override
 	public void debit(double s){
-		if(-credit_limit > getBalance() - s){
+		if(-creditLimit > getBalance() - s){
 			System.out.println("Over!");
-		}
-		else{
+		} else{
 			setBalance(getBalance() - s);
 			if(getBalance() < 0){
 				System.out.println("Balance is minus");
@@ -26,15 +25,24 @@ public class CheckingAccount extends Account {
 	public void nextMonth(){
 		if(getBalance() > 0){
 			setBalance(getBalance()*(1 + interest));
-		}
-		else{
-			setBalance(getBalance()*(1 + loan_interest));
+		} else{
+			setBalance(getBalance()*(1 + loanInterest));
 		}
 	}
-	public double getWithdrawable(){
-		return 0;
+	
+	public double getWithdrawableAccount(){
+		if(getBalance() > -creditLimit){
+			return creditLimit + getBalance();
+		} else{
+			return 0;
+		}
 	}
-	public double passTime(int time){
-		return getBalance()*Math.pow((1 + interest), time);
+	public void passTime(int time){
+		for(int i = 0; i < time; i++){
+			nextMonth();
+		}
+	}
+	boolean isBankrupted(){
+		return true;
 	}
 }
