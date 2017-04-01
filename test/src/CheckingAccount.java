@@ -42,7 +42,11 @@ public class CheckingAccount extends Account {
 			nextMonth();
 		}
 	}
-	boolean isBankrupted(){
-		return true;
+	public boolean isBankrupted(){
+		if(getBalance() < -creditLimit){
+			return true;
+		} else{
+			return false;
+		}
 	}
 }

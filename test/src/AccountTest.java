@@ -16,15 +16,15 @@ public class AccountTest {
 		account1.debit(amount);
 		
 		System.out.printf("Account1 balance: $ %.2f \t현재 출금 가능액: %.2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-		//(A) isBankrupt - typecasting 사용
+		((CheckingAccount)account1).isBankrupted();
 		
 		account1.passTime(1);
 		System.out.printf("Account1 balance: $ %.2f \t현재 출금 가능액: %.2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-		//(A)
+		((CheckingAccount)account1).isBankrupted();
 		
 		account1.passTime(5);
 		System.out.printf("Account1 balance: $ %.2f \t현재 출금 가능액: %.2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-		//(A)
+		((CheckingAccount)account1).isBankrupted();
 		
 		//SavingAccount
 		System.out.println();
