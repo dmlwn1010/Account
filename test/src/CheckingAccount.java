@@ -49,4 +49,14 @@ public class CheckingAccount extends Account {
 			return false;
 		}
 	}
+	
+	public double EstimateValue(int month){
+		for(int i = 0; i < month; i++){
+			nextMonth();
+		}
+		return getBalance();
+	}
+	public String toString(){
+		return String.format("CheckingAccount_Balance: %f", getBalance());
+	}
 }

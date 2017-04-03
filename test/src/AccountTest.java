@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class AccountTest {
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		Account account1 = new CheckingAccount(100, 50, 0.01, 0.07);
 		Account account2 = new SavingAccount(100, 0.05);
 
@@ -44,5 +44,5 @@ public class AccountTest {
 		System.out.printf("Account2 balance: $ %.2f \t현재 출금 가능액: %.2f\n", account2.getBalance(), account2.getWithdrawableAccount());
 		account2.debit(50);
 		System.out.printf("Account2 balance: $ %.2f \t현재 출금 가능액: %.2f\n", account2.getBalance(), account2.getWithdrawableAccount());
-	}
+	}*/
 }
