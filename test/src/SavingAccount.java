@@ -9,10 +9,14 @@ public class SavingAccount extends Account {
 	private int times = 0; //지나간 시간
 	private double estimate = getBalance(); //estimateValue()에서 가치 담는 변수
 	
-	public void debit(double s){
+	public void debit(double s) throws Exception{
 		if(times < 12){
-			System.out.println("아직 출금할 수 없습니다.");
-		} else{
+			throw new Exception("아직 출금 할 수 없습니다.");
+			//System.out.println("아직 출금할 수 없습니다.");
+		} else if(s < 0){
+			throw new Exception("음수 입력!");
+		}
+		else{
 			if(getBalance() > 0 && getBalance() - s > 0){
 				setBalance(getBalance() - s);
 			}

@@ -12,10 +12,13 @@ public class CheckingAccount extends Account {
 	private double loanInterest; //대출이자
 	
 	@Override
-	public void debit(double s){
-		if(-creditLimit > getBalance() - s){
-			System.out.println("Over!");
-		} else{
+	public void debit(double s) throws Exception{
+		if(-creditLimit > getBalance() - s){ //한도 초과 금액 인출하려는 경우
+			throw new Exception("Debit amount exceeded account balance.");
+		} else if(s < 0){
+			throw new Exception("음수 입력!");
+		}
+		else{
 			setBalance(getBalance() - s);
 			if(getBalance() < 0){
 				System.out.println("Balance is minus");

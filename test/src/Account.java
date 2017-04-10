@@ -10,13 +10,14 @@ public abstract class Account implements Valuable{
 	public double getBalance(){
 		return balance;
 	}
-	public void debit(double s){
-		if(balance > 0){
+	public void debit(double s) throws Exception{
+		balance -= s;
+		/*if(balance > 0){
 			balance = balance - s;
 		}
 		else{
 			System.out.println("Debit amount exceeded account balance");
-		}
+		}*/
 	}
 	public void credit(double s){
 		balance = balance + s;
