@@ -7,6 +7,7 @@ public class SavingAccount extends Account {
 	}
 	private double interest; //이자율
 	private int times = 0; //지나간 시간
+	private double estimate = getBalance(); //estimateValue()에서 가치 담는 변수
 	
 	public void debit(double s){
 		if(times < 12){
@@ -32,8 +33,8 @@ public class SavingAccount extends Account {
 	}
 	
 	public double EstimateValue(int month){
-		setBalance(getBalance()*Math.pow((1 + interest), month));
-		return getBalance();
+		estimate = estimate*Math.pow((1 + interest), month);
+		return estimate;
 	}
 	public String toString(){
 		return String.format("SavingsAccount_Balance: %f", getBalance());
