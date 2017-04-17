@@ -1,7 +1,7 @@
 
 public class ValuableTest {
 
-	public static void main(String args[]){
+/*	public static void main(String args[]){
 		Valuable[] objectList = new Valuable[4];
 		objectList[0] = new CheckingAccount(100, 50, 0.01, 0.07);
 		objectList[1] = new SavingAccount(100, 0.05);
@@ -10,7 +10,7 @@ public class ValuableTest {
 		
 		for(Valuable objectItem : objectList){
 			System.out.printf("%s\n", objectItem.toString());
-			System.out.printf("6 month later Valuable: %.2f\n\n", objectItem.EstimateValue(6));
+			System.out.printf("6 month later Valuable: %.2f\n\n", objectItem.estimateValue(6));
 		}
-	}
+	}*/
 }

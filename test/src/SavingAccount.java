@@ -34,10 +34,21 @@ public class SavingAccount extends Account {
 		if(times == 12){
 			setBalance(getBalance()*Math.pow((1 + interest), times));
 		}
+		System.out.printf("times: %d\n", times);
+	}
+	public void passTime(){
+		times = times + 1;
+		if(times == 12){
+			setBalance(getBalance()*Math.pow((1 + interest), times));
+		}
 	}
 	
-	public double EstimateValue(int month){
+	public double estimateValue(int month){
 		estimate = estimate*Math.pow((1 + interest), month);
+		return estimate;
+	}
+	public double estimateValue(){
+		estimate = estimate*Math.pow((1 + interest), 1);
 		return estimate;
 	}
 	public String toString(){

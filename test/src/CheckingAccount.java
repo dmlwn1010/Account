@@ -45,6 +45,9 @@ public class CheckingAccount extends Account {
 			nextMonth();
 		}
 	}
+	public void passTime(){
+		nextMonth();
+	}
 	public boolean isBankrupted(){
 		if(getBalance() < -creditLimit){
 			return true;
@@ -53,10 +56,14 @@ public class CheckingAccount extends Account {
 		}
 	}
 	
-	public double EstimateValue(int month){
+	public double estimateValue(int month){
 		for(int i = 0; i < month; i++){
 			nextMonth();
 		}
+		return getBalance();
+	}
+	public double estimateValue(){
+		nextMonth();
 		return getBalance();
 	}
 	public String toString(){

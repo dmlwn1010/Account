@@ -7,9 +7,16 @@ public class Car implements Valuable {
 	private String name;
 	private double price;
 	
-	public double EstimateValue(int month){
+	public double estimateValue(int month){
 		price = price * 0.8; //구입 후 20% 감가
 		for(int i = 0; i < month; i++){
+			price = price * 0.99;
+		}
+		return price;
+	}
+	public double estimateValue(){
+		price = price * 0.8; //구입 후 20% 감가
+		for(int i = 0; i < 1; i++){
 			price = price * 0.99;
 		}
 		return price;
