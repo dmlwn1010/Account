@@ -7,10 +7,10 @@ public class Human implements Valuable{
 	private String name;
 	private int age;
 	
-	public double estimateValue(int month){
+	public double estimateValue(int month){ //사물의 가치를 return
 		return Double.POSITIVE_INFINITY;
 	}
-	public double estimateValue(){
+	public double estimateValue(){ //사물의 가치를 return
 		return Double.POSITIVE_INFINITY;
 	}
 	public String toString(){

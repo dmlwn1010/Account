@@ -22,28 +22,28 @@ public class SavingAccount extends Account {
 			}
 		}
 	}
-	public double getWithdrawableAccount(){
+	public double getWithdrawableAccount(){ //현재 출금 가능한 금액을 return
 		if(times < 12){
 			return 0;
 		} else{
 			return getBalance();
 		}
 	}
-	public void passTime(int time){
+	public void passTime(int time){ //기간을 인자로 받아 해당기간이 지난 후 이자를 계산해 준다
 		times = times + time;
 		if(times == 12){
 			setBalance(getBalance()*Math.pow((1 + interest), times));
 		}
-		System.out.printf("times: %d\n", times);
+		//System.out.printf("times: %d\n", times);
 	}
-	public void passTime(){
+	public void passTime(){ //한달 후 이자를 계산
 		times = times + 1;
 		if(times == 12){
 			setBalance(getBalance()*Math.pow((1 + interest), times));
 		}
 	}
 	
-	public double estimateValue(int month){
+	public double estimateValue(int month){ //사물의 가치를 return
 		estimate = estimate*Math.pow((1 + interest), month);
 		return estimate;
 	}

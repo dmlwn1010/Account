@@ -25,7 +25,7 @@ public class CheckingAccount extends Account {
 			}
 		}
 	}
-	public void nextMonth(){
+	public void nextMonth(){ //한달 지났을 때 잔액변동
 		if(getBalance() > 0){
 			setBalance(getBalance()*(1 + interest));
 		} else{
@@ -33,30 +33,27 @@ public class CheckingAccount extends Account {
 		}
 	}
 	
-	public double getWithdrawableAccount(){
+	public double getWithdrawableAccount(){ //현재 출금 가능한 금액을 return
 		if(getBalance() > -creditLimit){
 			return creditLimit + getBalance();
 		} else{
 			return 0;
 		}
 	}
-	public void passTime(int time){
+	public void passTime(int time){ //기간을 인자로 받아 해당기간이 지난 후 이자를 계산해 준다
 		for(int i = 0; i < time; i++){
 			nextMonth();
 		}
 	}
-	public void passTime(){
+	public void passTime(){ //한달 후의 이자를 계산
 		nextMonth();
 	}
-	public boolean isBankrupted(){
-		if(getBalance() < -creditLimit){
-			return true;
-		} else{
-			return false;
-		}
+	
+	public boolean isBankrupted(){ //현재 금액이 파산했는지 확인
+		return (getBalance() < -creditLimit);
 	}
 	
-	public double estimateValue(int month){
+	public double estimateValue(int month){ //사물의 가치를 return 
 		for(int i = 0; i < month; i++){
 			nextMonth();
 		}

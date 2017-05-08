@@ -1,10 +1,22 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 public class AccountTest {
 	public static void main(String args[]) throws Exception{
+		CheckingAccount account1 = new CheckingAccount(100, 50, 0.01, 0.07);
+		SavingAccount account2 = new SavingAccount(100, 0.05);
 		
-		Scanner scan = new Scanner(System.in);
+		ArrayList<Account> accountList = new ArrayList<Account>();
+		accountList.add(account1);
+		accountList.add(account2);
+		
+		System.out.println("전체 계좌의 잔액 합산: " + Account.sumForAccount(accountList));
+		
+		System.out.println("전체 계좌의 12개월 후 적용");
+		Account.passTimeForList(accountList, 12);
+		System.out.println("전체 계좌의 잔액 합산: " + Account.sumForAccount(accountList));
+	}
+		/*Scanner scan = new Scanner(System.in);
 		
 		Valuable[] objectList = new Valuable[4];
 		
@@ -25,7 +37,6 @@ public class AccountTest {
 		
 		int cmd;
 		do{
-			double amount = 0;
 			cmd = scan.nextInt();
 			switch(cmd){
 				//CheckingAccount 테스트 
@@ -168,4 +179,5 @@ public class AccountTest {
 			account1.passTime(2);
 			System.out.println("2 month later account1: " + account1.getBalance());
 		}*/
+		
 }	
